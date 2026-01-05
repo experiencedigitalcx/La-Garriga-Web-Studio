@@ -871,6 +871,7 @@
   }
   .text-slate-500 {
     color: var(--color-slate-500);
+      
   }
   .text-slate-800 {
     color: var(--color-slate-800);
@@ -1578,4 +1579,10 @@ button {
       --tw-leading: initial;
     }
   }
+}
+
+
+ul.list-none p {
+    font-size: 12px;
+    text-align: left;
 }

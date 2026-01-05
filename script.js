@@ -19,34 +19,49 @@ closeMenu.addEventListener("click", closeMenuHandler);
 // Testimonials Section Marquee
 const cardsData = [
     {
-        image: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200',
-        name: 'Sophia Carter',
-        handle: '@sophiacodes',
-        date: 'February 14, 2025',
-        quote: 'This SaaS app has completely streamlined our onboarding process. What used to take hours now takes minutes!',
+        image: 'assets/profile.svg',
+        name: 'Marc',
+        handle: 'UnicHomes',
+        date: 'March 2025',
+        quote: 'En Juli va captar molt ràpid el que necessitàvem. La web d’UnicHomes és clara, ràpida i ens ajuda realment a captar clients.',
     },
     {
-        image: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200',
-        name: 'Ethan Walker',
-        handle: '@ethanwrites',
-        date: 'March 3, 2025',
-        quote: 'We’ve tried several tools, but nothing comes close in terms of speed and simplicity. Absolute game-changer.',
+        image: 'assets/profile.svg',
+        name: 'Marina Romero',
+        handle: 'Interiorista',
+        date: 'February 2025',
+        quote: 'Treballar amb en Juli ha estat molt fàcil. Ha sabut transmetre l’essència del meu estudi i cuidar cada detall del disseny.',
     },
     {
-        image: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=200&auto=format&fit=crop&q=60',
-        name: 'Maya Patel',
-        handle: '@mayapatel',
-        date: 'April 22, 2025',
-        quote: 'The automation features alone have saved our team countless hours every week. Worth every penny.',
+        image: 'assets/profile.svg',
+        name: 'Oriol',
+        handle: 'Blackpremium Cars',
+        date: 'January 2025',
+        quote: 'Volíem una imatge premium i una web que transmetés confiança. El resultat ha superat les expectatives.',
     },
     {
-        image: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=200&auto=format&fit=crop&q=60',
-        name: 'Liam Brooks',
-        handle: '@liambrooks',
-        date: 'May 18, 2025',
-        quote: 'Setup was ridiculously easy. Within 10 minutes, we were running live and onboarding our first customers.',
+        image: 'assets/profile.svg',
+        name: 'Montserrat',
+        handle: 'Psicopedagoga',
+        date: 'April 2025',
+        quote: 'En Juli m’ha ajudat molt durant tot el procés. M’ha explicat cada pas i la web reflecteix perfectament la meva manera de treballar.',
+    },
+    {
+        image: 'assets/profile.svg',
+        name: 'Fèlix',
+        handle: 'Arellano Enginyeria',
+        date: 'May 2025',
+        quote: 'Professional, ordenat i molt resolutiu. La web és funcional, clara i pensada per créixer amb el negoci.',
+    },
+    {
+        image: 'assets/profile.svg',
+        name: 'Jan',
+        handle: 'Dde Ballet',
+        date: 'June 2025',
+        quote: 'Buscàvem una web visual però fàcil d’utilitzar. En Juli ho ha entès a la perfecció i el resultat és espectacular.',
     },
 ];
+
 
 const row1 = document.getElementById('row1');
 const row2 = document.getElementById('row2');
