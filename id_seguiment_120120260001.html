@@ -47,54 +47,9 @@
             <img class="h-8.5 w-auto" src="./assets/logo_la_Garriga.png" alt="logo" />
         </a>
 
-        <div class="hidden md:flex items-center gap-8 transition duration-500">
-            <a href="index.html" class="hover:text-pink-500 transition">
-                Home
-            </a>
-            <a href="index.html" class="hover:text-pink-500 transition">
-                Serveis
-            </a>
-            <a href="index.html" class="hover:text-pink-500 transition">
-                Projectes i Testimonis
-            </a>
-            <a href="index.html" class="hover:text-pink-500 transition">
-                Preu
-            </a>
-            <a href="treballa_amb_nosaltres.html" class="hover:text-pink-500 transition">
-                Treballa amb nosaltres
-            </a>
-        </div>
-
-         <a class="flex items-center gap-2 border border-pink-900 hover:bg-pink-950/50 transition rounded-full px-6 h-11" href="https://wa.me/34600332590?text=Vull%20el%20meu%20descompte,%20estic%20interessat%2Fda%20en%20un%20projecte." target="_blank" aria-label="WhatsApp">
-                  <i class="fa-brands fa-whatsapp"></i>
-                    <span>WhatsApp</span>
-                </a>
-
-        <button id="open-menu" class="md:hidden active:scale-90 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu-icon lucide-menu"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
-        </button>
     </nav>
     <div id="mobile-navlinks" class="fixed inset-0 z-100 bg-black/40 backdrop-blur flex flex-col items-center justify-center text-lg gap-8 md:hidden transition-transform duration-400 -translate-x-full">
-        <a href="#!" style="color: #e60077;
-    font-weight: 500;
-    font-size: 30px;">
-            Benvingut/da
-        </a>
-        <a href="index.html">
-            Característiques
-        </a>
-        <a href="index.html">
-            Projectes i Testimonis
-        </a>
-        <a href="index.html">
-            Preus flexibles
-        </a>
-        <a href="treballa_amb_nosaltres.html">
-            Treballa amb nosaltres
-        </a>
-        <button id="close-menu" class="active:ring-3 active:ring-white aspect-square size-10 p-1 items-center justify-center bg-pink-600 hover:bg-pink-700 transition text-white rounded-md flex">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-        </button>
+  
         
         <div class="flex flex-col max-md:items-center max-md:text-center gap-2 items-end">
             
@@ -146,7 +101,137 @@
         <div style="margin-top: 100px; text-align: left; width: 100%;" >
 			
 			
-			
+			<style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--color-black);
+      color: #111827;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      color: #6b7280;
+      margin-bottom: 32px;
+    }
+
+    /* Cards */
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    /* Project info */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .info-item span {
+      display: block;
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    .info-item strong {
+      font-size: 15px;
+    }
+
+    /* Progress bar */
+    .progress-wrapper {
+      margin-top: 16px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 12px;
+      background: #e5e7eb;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      width: 65%; /* Percentatge */
+      background: linear-gradient(90deg, #e42d83, #e42d83);
+    }
+
+    .progress-text {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #374151;
+    }
+
+    /* Phases */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+    }
+
+    .step {
+      padding: 16px;
+      border-radius: 12px;
+      background: #f3f4f6;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .step.active {
+      background: #e42d83;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* Comments */
+    .comment {
+      padding: 12px 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .comment:last-child {
+      border-bottom: none;
+    }
+
+    .comment span {
+      display: block;
+      font-size: 12px;
+      color: #6b7280;
+      margin-bottom: 4px;
+    }
+
+    /* Files */
+    .file {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      border-radius: 10px;
+      background: #f3f4f6;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .file a {
+      text-decoration: none;
+      color: #e42d83;
+      font-weight: 600;
+    }
+  </style>
 			
 			<style>
 			input {
@@ -171,176 +256,122 @@ input:focus {
 }
 
 			</style>
-			<hr style="margin: 3rem 0;">
-		<p>Accés a l’àrea privada del projecte<br>
-Introdueix ID Projecte per accedir al seguiment del teu projecte.</p><br>
-				<input type="password" id="pass" placeholder="ID Projecte del projecte">
-<button style="color: #e42d83; padding-left: 10px;" onclick="login()">Entrar</button>
+			<a style="color: #e42d83; font-weight: 800;" href="index.html">Sortir</a>
+<div class="container">
 
-<script>
-function login() {
-  const pass = document.getElementById('pass').value;
-  if (pass === "120120260001") {
-    window.location.href = "id_seguiment_120120260001.html";
-  } else {
-    alert("ID Projecte incorrecta");
-  }
-}
-</script>
+	
+    <h1 style="color: white;">Hola Marina!</h1>
+	<h1 style="color: white;">Projecte web – Seguiment</h1>
+    <p style="color: white;" class="subtitle">Àrea privada del projecte</p>
+	
+
+    <!-- Informació del projecte -->
+    <div class="card">
+      <div class="info-grid">
+        <div class="info-item">
+          <span>Client</span>
+          <strong>Marina Romero</strong>
+        </div>
+        <div class="info-item">
+          <span>Data d’inici</span>
+          <strong>10/01/2026</strong>
+        </div>
+        <div class="info-item">
+          <span>Entrega prevista</span>
+          <strong>15/02/2026</strong>
+        </div>
+        <div class="info-item">
+          <span>Estat actual</span>
+          <strong>Projecte en curs</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progrés -->
+    <div class="card">
+      <h2>Progrés del projecte</h2>
+
+      <div class="progress-wrapper">
+        <div class="progress-bar">
+          <div class="progress"></div>
+        </div>
+        <div class="progress-text">65% completat</div>
+      </div>
+    </div>
+
+    <!-- Fases -->
+    <div class="card">
+      <h2>Fases del projecte</h2><br>
+
+      <div class="steps">
+		<div class="step">1. Paga i senyal 250€</div>
+        <div class="step">2. Pendent de validació</div>
+        <div class="step active">3. Projecte iniciat</div>
+        <div class="step active">4. En curs</div>
+        <div class="step">5. Revisió final</div>
+		<div class="step">6. Pagament final 300€</div>  
+        <div class="step">7. Acabat</div>
+      </div>
+		<br>
+		<h2>Plataforma de pagament</h2><br>
+
+      <div class="steps">
+		<div class="step">ES62 2100 0007 8301 0916 4955</div>
+		<div class="step">Bizzum +34 600 332 590</div>
+        
+      </div>
+		
+    </div>
+
+    <!-- Comentaris -->
+    <div class="card">
+      <h2>Comentaris</h2>
+
+      <div class="comment">
+        <span>12/01/2026 – Juli</span>
+        S’ha iniciat el desenvolupament de la web.
+      </div>
+
+      <div class="comment">
+        <span>18/01/2026 – Client</span>
+        Ens agrada molt la proposta inicial.
+      </div>
+    </div>
+
+    <!-- Arxius -->
+    <div class="card">
+      <h2>Arxius del projecte</h2><br>
+
+      <div class="file">
+        <span>Briefing.pdf</span>
+        <a href="#">Descarregar</a>
+      </div>
+
+      <div class="file">
+        <span>Proposta-disseny.jpg</span>
+        <a href="#">Descarregar</a>
+      </div>
+    </div>
+
+			</div>
+			
+			
+			
+				<a style="color: #e42d83; font-weight: 800;" href="index.html">Sortir</a>
+
 			
 			
 			
 			<hr style="margin: 3rem 0;">
 			
-         <h1 class="text-5xl/17 md:text-6xl/21 font-medium max-w-2xl text-center" style="text-align: left; font-size: 30px;">
-            Com treballarem el teu projecte web? 
-            
-        </h1>
-        
+     
  
 
              
         </div>
     
         </div>
-    
-    <div style="margin: 30px;">
-       <section class="project-process" style="max-width: 1000px; margin: 0 auto; line-height: 1.7;">
-
-  <header style="margin-bottom: 3rem;">
-    <p>
-      Un cop has decidit començar el teu projecte amb La Garriga Web Studio,
-      aquest serà el recorregut que seguirem, pas a pas, perquè tinguis
-      una web clara, funcional i alineada amb el teu negoci.
-    </p>
-      <br>
-      <div style="width: 100%; text-align: center,">
-      <img src="assets/spint.png" width="300px;">
-      </div>
-  </header>
-
-  <hr style="margin: 3rem 0;">
-
-  <!-- Fase 1 -->
-  <section style="margin-bottom: 3rem;">
-    <h3  style="color: #e42d83; font-weight: 800;">Sprint 1 · Anàlisi i definició del projecte</h3>
-    <p><strong>Durada aproximada:</strong> 1 setmana</p>
-
-    <h4 style="color: #e42d83;">Què farem</h4>
-    <ul>
-      <li>Reunió inicial per entendre el teu negoci i objectius.</li>
-      <li>Definició del tipus de web (landing, corporativa, WordPress, botiga).</li>
-      <li>Definició d’estructura i continguts principals.</li>
-      <li>Establiment de terminis i prioritzacions.</li>
-    </ul>
-
-    <h4 style="color: #e42d83;">Qui hi participa</h4>
-    <ul>
-      <li><strong>Client:</strong> explica el negoci, objectius i necessitats.</li>
-      <li><strong>La Garriga Web Studio:</strong> assessora, estructura i defineix el projecte.</li>
-    </ul>
-  </section>
-
-  <hr style="margin: 3rem 0;">
-
-  <!-- Fase 2 -->
-  <section style="margin-bottom: 3rem;">
-    <h3  style="color: #e42d83; font-weight: 800;">Sprint 2 · Disseny i proposta visual</h3>
-    <p><strong>Durada aproximada:</strong> 1 setmana</p>
-
-    <h4 style="color: #e42d83;">Què farem</h4>
-    <ul>
-      <li>Creació del disseny visual de la web.</li>
-      <li>Proposta d’estil, colors i tipografies.</li>
-      <li>Maquetació inicial de les pàgines principals.</li>
-    </ul>
-
-    <h4 style="color: #e42d83;">Qui hi participa</h4>
-    <ul>
-      <li><strong>La Garriga Web Studio:</strong> disseny i maquetació.</li>
-      <li><strong>Client:</strong> revisa i valida la proposta visual.</li>
-    </ul>
-  </section>
-
-  <hr style="margin: 3rem 0;">
-
-  <!-- Fase 3 -->
-  <section style="margin-bottom: 3rem;">
-    <h3  style="color: #e42d83; font-weight: 800;">Sprint 3 · Desenvolupament web</h3>
-    <p><strong>Durada aproximada:</strong> 1 – 2 setmanes</p>
-
-    <h4 style="color: #e42d83;">Què farem</h4>
-    <ul>
-      <li>Programació de la web (HTML, CSS, JavaScript o WordPress).</li>
-      <li>Integració de continguts i funcionalitats.</li>
-      <li>Adaptació a dispositius mòbils (responsive).</li>
-    </ul>
-
-    <h4 style="color: #e42d83;">Qui hi participa</h4>
-    <ul>
-      <li><strong>La Garriga Web Studio:</strong> desenvolupament i integració.</li>
-      <li><strong>Client:</strong> facilita textos, imatges i informació necessària.</li>
-    </ul>
-  </section>
-
-  <hr style="margin: 3rem 0;">
-
-  <!-- Fase 4 -->
-  <section style="margin-bottom: 3rem;">
-    <h3  style="color: #e42d83; font-weight: 800;">Sprint 4 · Revisió i ajustos finals</h3>
-    <p><strong>Durada aproximada:</strong> 1 setmana</p>
-
-    <h4 style="color: #e42d83;">Què farem</h4>
-    <ul>
-      <li>Revisió completa del funcionament de la web.</li>
-      <li>Ajustos visuals i de contingut.</li>
-      <li>Correcció d’errors i millores finals.</li>
-    </ul>
-
-    <h4 style="color: #e42d83;">Qui hi participa</h4>
-    <ul>
-      <li><strong>Client:</strong> revisa i proposa petits canvis.</li>
-      <li><strong>La Garriga Web Studio:</strong> aplica els ajustos acordats.</li>
-    </ul>
-  </section>
-
-  <hr style="margin: 3rem 0;">
-
-  <!-- Fase 5 -->
-  <section style="margin-bottom: 3rem;">
-    <h3  style="color: #e42d83; font-weight: 800;">Sprint 5 · Publicació i lliurament</h3>
-    <p><strong>Durada aproximada:</strong> 2 – 3 dies</p>
-
-    <h4 style="color: #e42d83;">Què farem</h4>
-    <ul>
-      <li>Publicació de la web en el domini definit.</li>
-      <li>Comprovació final de seguretat i rendiment.</li>
-      <li>Lliurament del projecte i explicació bàsica d’ús.</li>
-    </ul>
-
-    <h4 style="color: #e42d83;">Qui hi participa</h4>
-    <ul>
-      <li><strong>La Garriga Web Studio:</strong> posada en producció i suport.</li>
-      <li><strong>Client:</strong> validació final.</li>
-    </ul>
-  </section>
-
-  <hr style="margin: 3rem 0;">
-
-  <!-- Tancament -->
-  <section>
-    <h3  style="color: #e42d83; font-weight: 800;">Un procés clar i transparent</h3>
-    <p>
-      Treballem amb un procés estructurat i entenedor perquè sàpigues
-      en tot moment en quin punt es troba el teu projecte.
-      La comunicació és constant i cada pas es valida abans de continuar.
-    </p>
-  </section>
-
-</section>
-
-   
-    </div>
+  
     
      
 
