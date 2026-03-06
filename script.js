@@ -34,6 +34,13 @@ const cardsData = [
     },
     {
         image: 'assets/profile.svg',
+        name: 'Bhakta Girbau',
+        handle: 'La Llum dels Elements',
+        date: 'March 2026',
+        quote: 'Buscàvem una imatge natural i propera per a les teràpies, i la web ho reflecteix perfectament.',
+    },
+    {
+        image: 'assets/profile.svg',
         name: 'Oriol',
         handle: 'Blackpremium Cars',
         date: 'January 2025',
