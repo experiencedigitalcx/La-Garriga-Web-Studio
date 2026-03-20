@@ -55,6 +55,20 @@ const cardsData = [
     },
     {
         image: 'assets/profile.svg',
+        name: 'Shangia Girbau',
+        handle: 'Professora Educació Infantil i Psicopedagoga',
+        date: 'January 2023',
+        quote: 'Molt contenta amb el meu portafoli web. Han entès perfectament la meva idea i el resultat és professional i molt ben resolt. Totalment recomanable.',
+    },
+    {
+        image: 'assets/profile.svg',
+        name: 'Blanca Muntane',
+        handle: 'Guia eqüestre',
+        date: 'April 2023',
+        quote: 'Estic encantada amb la meva web! Han sabut captar perfectament l’essència de les rutes a cavall i el tracte amb els animals.',
+    },
+    {
+        image: 'assets/profile.svg',
         name: 'Fèlix',
         handle: 'Arellano Enginyeria',
         date: 'May 2025',
