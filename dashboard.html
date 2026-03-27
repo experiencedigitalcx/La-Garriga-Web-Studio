@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Àrea Privada</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <h1 class="text-2xl font-bold text-gray-900">Hola, Juli!</h1>
+                <div class="flex items-center space-x-4">
+                    <span id="user-email" class="text-sm text-gray-600"></span>
+                    <button id="logout-btn" class="bg-black hover:bg-gray-800 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
+                        Tancar Sessió
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Navigation Tabs -->
+        <div class="mb-8">
+            <nav class="flex space-x-8">
+                <button id="tracking-tab" class="tab-btn active text-gray-900 border-b-2 border-pink-500 pb-2 font-medium">
+                    Seguiment Projectes
+                </button>
+                <button id="clients-tab" class="tab-btn text-gray-500 hover:text-gray-700 pb-2 font-medium">
+                    Clients
+                </button>
+                <button id="invoices-tab" class="tab-btn text-gray-500 hover:text-gray-700 pb-2 font-medium">
+                    Factures
+                </button>
+            </nav>
+        </div>
+
+        <!-- Project Tracking Section -->
+        <div id="tracking-section" class="tab-content">
+            <div class="bg-white rounded-lg shadow-sm border">
+                <div class="px-6 py-4 border-b border-gray-200">
+                    <h2 class="text-lg font-semibold text-gray-900">Seguiment de Projectes</h2>
+                    <p class="text-sm text-gray-600 mt-1">Accés detallat al seguiment dels projectes actius</p>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Tracking Card 1 -->
+                        <div class="bg-gray-50 rounded-lg p-6 border">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <h3 class="font-semibold text-gray-900 mb-1">Marina Romero</h3>
+                                    <p class="text-sm text-gray-600">Projecte web personal</p>
+                                </div>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Completat</span>
+                            </div>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Data d'inici:</span>
+                                    <span class="font-medium">10/01/2026</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Data de finalització:</span>
+                                    <span class="font-medium">15/02/2026</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">ID Projecte:</span>
+                                    <span class="font-medium">120120260001</span>
+                                </div>
+                            </div>
+                            <button onclick="openTrackingWindow('id_seguiment_120120260001.html')" class="w-full bg-black hover:bg-gray-800 text-white text-center py-2 px-4 rounded-md text-sm font-medium transition-colors">
+                                Veure Seguiment
+                            </button>
+                        </div>
+                        <!-- Tracking Card 2 -->
+                        <div class="bg-gray-50 rounded-lg p-6 border">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <h3 class="font-semibold text-gray-900 mb-1">Bhakta Girbau Bassa</h3>
+                                    <p class="text-sm text-gray-600">La Llum dels Elements</p>
+                                </div>
+                                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Completat</span>
+                            </div>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Data d'inici:</span>
+                                    <span class="font-medium">12/10/2024</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Data de finalització:</span>
+                                    <span class="font-medium">01/03/2026</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">ID Projecte:</span>
+                                    <span class="font-medium">121020240001</span>
+                                </div>
+                            </div>
+                            <button onclick="openTrackingWindow('id_seguiment_121020240001.html')" class="w-full bg-black hover:bg-gray-800 text-white text-center py-2 px-4 rounded-md text-sm font-medium transition-colors">
+                                Veure Seguiment
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- Clients Section -->
+        <div id="clients-section" class="tab-content hidden">
+            <div class="bg-white rounded-lg shadow-sm border">
+                <div class="px-6 py-4 border-b border-gray-200">
+                    <h2 class="text-lg font-semibold text-gray-900">Clients</h2>
+                </div>
+                <div class="p-6">
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Accions</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nom</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Empresa</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Telèfon</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estat</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Comentaris</th>
+                                </tr>
+                                <tr class="bg-white">
+                                    <th></th>
+                                    <th class="px-6 py-2 text-left">
+                                        <input id="filter-name" type="text" class="w-full border border-gray-300 rounded px-2 py-1 text-xs" placeholder="Filtrar per nom" />
+                                    </th>
+                                    <th class="px-6 py-2 text-left">
+                                        <input id="filter-company" type="text" class="w-full border border-gray-300 rounded px-2 py-1 text-xs" placeholder="Filtrar per empresa" />
+                                    </th>
+                                    <th class="px-6 py-2 text-left">
+                                        <input id="filter-email" type="text" class="w-full border border-gray-300 rounded px-2 py-1 text-xs" placeholder="Filtrar per email" />
+                                    </th>
+                                    <th class="px-6 py-2 text-left">
+                                        <input id="filter-phone" type="text" class="w-full border border-gray-300 rounded px-2 py-1 text-xs" placeholder="Filtrar per telèfon" />
+                                    </th>
+                                    <th class="px-6 py-2 text-left">
+                                        <input id="filter-status" type="text" class="w-full border border-gray-300 rounded px-2 py-1 text-xs" placeholder="Filtrar per estat" />
+                                    </th>
+                                    <th class="px-6 py-2 text-left">
+                                        <input id="filter-comments" type="text" class="w-full border border-gray-300 rounded px-2 py-1 text-xs" placeholder="Filtrar per comentaris" />
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Oriol Barnils</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Barnils Consulting</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">oriolbarnils@gmail.com</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">+34 610 490 307</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Actiu</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Arnau Boix</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Boi Design</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">arnau25mataro@outlook.com</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">+34 682 650 135</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Actiu</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Jan Borda</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Aiguafred</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">deballet@gmail.com</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">+34 626 885 902</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Actiu</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Joan Font</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Comercialiber</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">jfont@comercialiber.com</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">+34 93 381 1234</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Actiu</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Ramon Casas</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Casas Pro</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">ramon.casas@example.com</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">+34 649 874 554</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Actiu</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Montserrat Granollers</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Granollers Studio</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">montserrat.estape@gmail.com</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">+34 938 790 355</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Actiu</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Félix Arellano</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Arellano Web</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">arellano@arellano.es</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">+34 608 791 497</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Actiu</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Laura Payés</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Vallès Creatiu</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">info@micasadelvalles.com</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">+34 93 625 1234</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Actiu</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Bernat Ali</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Ali Innovació</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">bernata99@gmail.com</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">+34 675 424 962</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Actiu</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Carme Ribera</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Ribera Digital</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">carmeriba@hotmail.com</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">+34 663 089 465</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Actiu</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Blanca Mir</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Mir Creativa</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">blanca141414@gmail.com</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">+34 608 020 471</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Actiu</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Jandyra</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Flowerswill</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">jan@flowerswill.com</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">+34 655 476 309</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Actiu</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Dani Kiosk</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Kiosk Digital</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">dani.kiosk@example.com</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">+34 638 370 500</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Actiu</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Residència Berguedà</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Residencial</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">info@residenciabergueda.com</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">+34 938 001 234</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Actiu</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Marc Uni</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Uni Solutions</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">marc@uni.com</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">+34 640 537 653</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Actiu</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Client detail modal -->
+        <div id="client-card-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 p-4">
+            <div class="w-full max-w-xl rounded-xl bg-white p-6 shadow-lg">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 id="client-card-name" class="text-lg font-bold text-gray-900">Fitxa client</h3>
+                    <button onclick="closeClientCard()" class="text-gray-500 hover:text-gray-700">Tancar ✕</button>
+                </div>
+                <div class="space-y-2 text-sm text-gray-700">
+                    <div><strong>Empresa:</strong> <span id="client-card-company"></span></div>
+                    <div><strong>Email:</strong> <span id="client-card-email"></span></div>
+                    <div><strong>Telèfon:</strong> <span id="client-card-phone"></span></div>
+                    <div><strong>Estat:</strong> <span id="client-card-status"></span></div>
+                    <div><strong>Comentaris:</strong> <span id="client-card-comment"></span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Invoices Section -->
+        <div id="invoices-section" class="tab-content hidden">
+            <div class="bg-white rounded-lg shadow-sm border">
+                <div class="px-6 py-4 border-b border-gray-200">
+                    <h2 class="text-lg font-semibold text-gray-900">Factures</h2>
+                </div>
+                <div class="p-6">
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Número</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Client</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Data</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Import</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estat</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">INV-2025-001</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">UnicHomes</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">15/03/2025</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">€1,200.00</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Pagada</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">INV-2026-001</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">La Llum dels Elements</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">10/03/2026</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">€950.00</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Pendent</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">INV-2025-002</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Blackpremium Cars</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">20/01/2025</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">€1,800.00</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Pagada</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+
+        // Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyBsdXEFrnrgQC9es56q6C6famoCSItOAs8",
+            authDomain: "la-garriga-we-studio.firebaseapp.com",
+            projectId: "la-garriga-we-studio",
+            storageBucket: "la-garriga-we-studio.firebasestorage.app",
+            messagingSenderId: "424908264933",
+            appId: "1:424908264933:web:0ecb4a40906a1bdce28b0c",
+            measurementId: "G-5BHV7BY0RX"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Check if user is logged in
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                window.location.href = "index.html";
+            } else {
+                document.getElementById("user-email").textContent = user.email;
+            }
+        });
+
+        // Logout function
+        document.getElementById("logout-btn").addEventListener("click", () => {
+            signOut(auth)
+                .then(() => {
+                    window.location.href = "index.html";
+                })
+                .catch((error) => {
+                    console.error("Error al tancar sessió:", error);
+                });
+        });
+
+        // Modal functionality for project tracking
+        window.openTrackingWindow = function(fileName) {
+            // Open the tracking file in a new popup window
+            const popup = window.open(
+                fileName,
+                'seguiment_projecte',
+                'width=1200,height=800,scrollbars=yes,resizable=yes,status=yes,location=no,toolbar=no,menubar=no'
+            );
+
+            // Focus the popup window
+            if (popup) {
+                popup.focus();
+            } else {
+                // If popup was blocked, show an alert
+                alert('La finestra popup ha estat bloquejada pel navegador. Si us plau, permet les finestres popup per aquest lloc.');
+            }
+        };
+
+        // Client card popup actions
+        window.openClientCard = function(button) {
+            const row = button.closest('tr');
+            if (!row) return;
+
+            const cells = row.querySelectorAll('td');
+            const name = cells[1]?.textContent?.trim() || '';
+            const company = cells[2]?.textContent?.trim() || '';
+            const email = cells[3]?.textContent?.trim() || '';
+            const phone = cells[4]?.textContent?.trim() || '';
+            const status = cells[5]?.textContent?.trim() || '';
+            const comments = cells[6]?.textContent?.trim() || 'Sense comentaris';
+
+            document.getElementById('client-card-name').textContent = name;
+            document.getElementById('client-card-company').textContent = company;
+            document.getElementById('client-card-email').textContent = email;
+            document.getElementById('client-card-phone').textContent = phone;
+            document.getElementById('client-card-status').textContent = status;
+            document.getElementById('client-card-comment').textContent = comments;
+
+            document.getElementById('client-card-modal').classList.remove('hidden');
+            document.getElementById('client-card-modal').classList.add('flex');
+        };
+
+        window.closeClientCard = function() {
+            const modal = document.getElementById('client-card-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        };
+
+        // add actions/comments cells to each row if missing (action first column)
+        document.querySelectorAll('#clients-section tbody tr').forEach(row => {
+            const cells = row.querySelectorAll('td');
+            if (cells.length === 5) {
+                const actionCell = document.createElement('td');
+                actionCell.className = 'px-6 py-4 whitespace-nowrap';
+                actionCell.innerHTML = '<button onclick="openClientCard(this)" class="px-3 py-1 text-xs font-semibold text-black bg-transparent border border-gray-300 rounded hover:bg-gray-100">🔍</button>';
+                row.insertBefore(actionCell, row.firstChild);
+
+                const commentCell = document.createElement('td');
+                commentCell.className = 'px-6 py-4 whitespace-nowrap text-sm text-gray-500 client-comment';
+                commentCell.textContent = 'Sense comentaris';
+                row.appendChild(commentCell);
+            }
+        });
+
+        // Sort clients by name alphabetically after adding action/comment columns
+        (function sortClientsByName() {
+            const tbody = document.querySelector('#clients-section tbody');
+            if (!tbody) return;
+
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            rows.sort((a, b) => {
+                const nameA = (a.querySelector('td:nth-child(2)')?.textContent || '').trim().toLowerCase();
+                const nameB = (b.querySelector('td:nth-child(2)')?.textContent || '').trim().toLowerCase();
+                return nameA.localeCompare(nameB, 'ca');
+            });
+
+            rows.forEach(row => tbody.appendChild(row));
+        })();
+
+        // Filter function for client table
+        function filterClients() {
+            const nameFilter = document.getElementById('filter-name').value.trim().toLowerCase();
+            const companyFilter = document.getElementById('filter-company').value.trim().toLowerCase();
+            const emailFilter = document.getElementById('filter-email').value.trim().toLowerCase();
+            const phoneFilter = document.getElementById('filter-phone').value.trim().toLowerCase();
+            const statusFilter = document.getElementById('filter-status').value.trim().toLowerCase();
+            const commentsFilter = document.getElementById('filter-comments').value.trim().toLowerCase();
+
+            const rows = document.querySelectorAll('#clients-section tbody tr');
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                const nameText = (cells[1]?.textContent || '').trim().toLowerCase();
+                const companyText = (cells[2]?.textContent || '').trim().toLowerCase();
+                const emailText = (cells[3]?.textContent || '').trim().toLowerCase();
+                const phoneText = (cells[4]?.textContent || '').trim().toLowerCase();
+                const statusText = (cells[5]?.textContent || '').trim().toLowerCase();
+                const commentsText = (cells[6]?.textContent || '').trim().toLowerCase();
+
+                const matches =
+                    (!nameFilter || nameText.includes(nameFilter)) &&
+                    (!companyFilter || companyText.includes(companyFilter)) &&
+                    (!emailFilter || emailText.includes(emailFilter)) &&
+                    (!phoneFilter || phoneText.includes(phoneFilter)) &&
+                    (!statusFilter || statusText.includes(statusFilter)) &&
+                    (!commentsFilter || commentsText.includes(commentsFilter));
+
+                row.style.display = matches ? '' : 'none';
+            });
+        }
+
+        ['filter-name', 'filter-company', 'filter-email', 'filter-phone', 'filter-status', 'filter-comments'].forEach(id => {
+            const input = document.getElementById(id);
+            if (input) {
+                input.addEventListener('input', filterClients);
+            }
+        });
+
+        // Tab switching functionality
+        const tabs = document.querySelectorAll('.tab-btn');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                tabs.forEach(t => {
+                    t.classList.remove('active', 'text-gray-900', 'border-b-2', 'border-pink-500');
+                    t.classList.add('text-gray-500');
+                });
+                // Add active class to clicked tab
+                tab.classList.add('active', 'text-gray-900', 'border-b-2', 'border-pink-500');
+                tab.classList.remove('text-gray-500');
+
+                // Hide all content
+                contents.forEach(content => content.classList.add('hidden'));
+
+                // Show corresponding content
+                const targetId = tab.id.replace('-tab', '-section');
+                document.getElementById(targetId).classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

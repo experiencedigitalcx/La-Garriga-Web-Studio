@@ -56,7 +56,7 @@
         .login-btn {
             width: 100%;
             padding: 12px;
-            background: #d4227d;
+            background: #c6005c;
             border: none;
             border-radius: 6px;
             color: white;
@@ -81,15 +81,15 @@
     <div class="login-container">
         <h2>Àrea Privada</h2>
 
-        <form>
+        <form onsubmit="login(event)">
             <div class="input-group">
                 <label for="username">Usuari</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="user" name="username" required>
             </div>
 
             <div class="input-group">
                 <label for="password">Contrasenya</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="pass" name="password" required>
             </div>
 
             <button type="submit" class="login-btn">Iniciar sessió</button>
@@ -109,6 +109,52 @@
         </div>
     </div>
 
+
 </body>
 
 </html>
+
+<script type="module">
+  // Firebase bàsic
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
+
+  // 🔐 IMPORT AUTH (això et faltava)
+  import { 
+    getAuth, 
+    signInWithEmailAndPassword 
+  } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBsdXEFrnrgQC9es56q6C6famoCSItOAs8",
+    authDomain: "la-garriga-we-studio.firebaseapp.com",
+    projectId: "la-garriga-we-studio",
+    storageBucket: "la-garriga-we-studio.firebasestorage.app",
+    messagingSenderId: "424908264933",
+    appId: "1:424908264933:web:0ecb4a40906a1bdce28b0c",
+    measurementId: "G-5BHV7BY0RX"
+  };
+
+  // Init
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+  // 🔐 INIT AUTH
+  const auth = getAuth(app);
+
+  // 🔥 LOGIN (IMPORTANT: global)
+  window.login = function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("user").value;
+    const password = document.getElementById("pass").value;
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        window.location.href = "areaprivada_success.html";
+      })
+      .catch((error) => {
+        alert("Accés denegat!    " + error.message);
+      });
+  }
+</script>

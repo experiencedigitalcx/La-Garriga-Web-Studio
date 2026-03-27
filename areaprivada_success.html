@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benvinguda - Àrea Privada</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: black;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            max-width: 600px;
+            text-align: center;
+        }
+        h1 { color: #333; margin-bottom: 10px; }
+        .user-info { color: #667eea; font-size: 18px; margin-bottom: 30px; }
+        .message { color: #555; font-size: 16px; line-height: 1.6; margin-bottom: 30px; }
+        .buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        button {
+            padding: 12px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-primary { background: #c6005c; color: white; }
+        .btn-primary:hover { background: #ff3191; }
+        .btn-secondary { background: #e0e0e0; color: #333; }
+        .btn-secondary:hover { background: #d0d0d0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Benvingut!</h1>
+        <div class="user-info" id="user-info">
+            Has iniciat sessió correctament
+        </div>
+        <div class="message">
+            <p>Accés a la teva àrea privada. Pots consultar els teus documents, perfil i configuració.</p>
+        </div>
+        <div class="buttons">
+            <button class="btn-primary" onclick="document.location='dashboard.html'">Anar al Dashboard</button>
+            <button class="btn-secondary" onclick="logout()">Tancar Sessió</button>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+
+        // Config Firebase
+         const firebaseConfig = {
+    apiKey: "AIzaSyBsdXEFrnrgQC9es56q6C6famoCSItOAs8",
+    authDomain: "la-garriga-we-studio.firebaseapp.com",
+    projectId: "la-garriga-we-studio",
+    storageBucket: "la-garriga-we-studio.firebasestorage.app",
+    messagingSenderId: "424908264933",
+    appId: "1:424908264933:web:0ecb4a40906a1bdce28b0c",
+    measurementId: "G-5BHV7BY0RX"
+  };
+
+        // Inicialitzar Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Comprovar si hi ha usuari loguejat
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                // Si no està loguejat, redirigir a index.html
+                window.location.href = "index.html";
+            } else {
+                // Opcional: mostrar l'email de l'usuari
+                const userInfo = document.getElementById("user-info");
+                userInfo.textContent = `Has iniciat sessió correctament com a ${user.email}`;
+            }
+        });
+
+        // Funció de logout
+        function logout() {
+            signOut(auth)
+                .then(() => {
+                    window.location.href = "index.html";
+                })
+                .catch((error) => {
+                    console.error("Error al tancar sessió:", error);
+                });
+        }
+
+        // Assignar logout a nivell global per al botó
+        window.logout = logout;
+    </script>
+</body>
+</html>

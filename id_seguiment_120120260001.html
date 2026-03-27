@@ -220,8 +220,13 @@ window.addEventListener('load', function() {
 
     .progress {
       height: 100%;
-      width: 65%; /* Percentatge */
+      width: 100%; /* Percentatge */
       background: linear-gradient(90deg, #e42d83, #e42d83);
+    }
+    .progress100 {
+      height: 100%;
+      width: 100%; /* Percentatge */
+      background: linear-gradient(90deg, #46b63c, #46b63c);
     }
 
     .progress-text {
@@ -244,9 +249,23 @@ window.addEventListener('load', function() {
       text-align: center;
       font-size: 12px;
     }
+    .stepdone {
+      padding: 16px;
+      border-radius: 12px;
+      background: #46b63c;
+      color: #ffffff;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+    }
 
     .step.active {
       background: #e42d83;
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .step.active100 {
+      background: #46b63c;
       color: #ffffff;
       font-weight: 600;
     }
@@ -310,7 +329,7 @@ input:focus {
 }
 
 			</style>
-			<a style="color: #e42d83; font-weight: 800;" href="index.html">Sortir</a>
+		
 <div class="container">
 
 	
@@ -331,12 +350,12 @@ input:focus {
           <strong>10/01/2026</strong>
         </div>
         <div class="info-item">
-          <span>Entrega prevista</span>
+          <span>Data de finalització</span>
           <strong>15/02/2026</strong>
         </div>
         <div class="info-item">
           <span>Estat actual</span>
-          <strong>Projecte en curs</strong>
+          <strong>Projecte completat</strong>
         </div>
       </div>
     </div>
@@ -347,9 +366,9 @@ input:focus {
 
       <div class="progress-wrapper">
         <div class="progress-bar">
-          <div class="progress"></div>
+          <div class="progress100"></div>
         </div>
-        <div class="progress-text">65% completat</div>
+        <div class="progress-text">100% completat</div>
       </div>
     </div>
 
@@ -358,13 +377,13 @@ input:focus {
       <h2>Fases del projecte</h2><br>
 
       <div class="steps">
-		<div class="step">1. Paga i senyal 250€</div>
-        <div class="step">2. Pendent de validació</div>
-        <div class="step active">3. Projecte iniciat</div>
-        <div class="step active">4. En curs</div>
-        <div class="step">5. Revisió final</div>
-		<div class="step">6. Pagament final 300€</div>  
-        <div class="step">7. Acabat</div>
+		<div class="stepdone">1. Paga i senyal 250€</div>
+        <div class="stepdone">2. Pendent de validació</div>
+        <div class="stepdone">3. Projecte iniciat</div>
+        <div class="stepdone">4. En curs</div>
+        <div class="stepdone">5. Revisió final</div>
+		<div class="stepdone">6. Pagament final 300€</div>  
+        <div class="stepdone">7. Acabat</div>
       </div>
 		<br>
 		<h2>Plataforma de pagament</h2><br>
@@ -390,6 +409,11 @@ input:focus {
         <span>18/01/2026 – Client</span>
         Ens agrada molt la proposta inicial.
       </div>
+
+      <div class="comment">
+        <span>15/02/2026 – Juli</span>
+        Projecte completat al 100%. Lliurat satisfactòriament i pagat en efectiu.
+      </div>
     </div>
 
     <!-- Arxius -->
@@ -411,7 +435,7 @@ input:focus {
 			
 			
 			
-				<a style="color: #e42d83; font-weight: 800;" href="index.html">Sortir</a>
+				
 
 			
 			
@@ -504,6 +528,34 @@ input:focus {
     
     
     <script src="./script.js"></script>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+
+        // Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyBsdXEFrnrgQC9es56q6C6famoCSItOAs8",
+            authDomain: "la-garriga-we-studio.firebaseapp.com",
+            projectId: "la-garriga-we-studio",
+            storageBucket: "la-garriga-we-studio.firebasestorage.app",
+            messagingSenderId: "424908264933",
+            appId: "1:424908264933:web:0ecb4a40906a1bdce28b0c",
+            measurementId: "G-5BHV7BY0RX"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Check if user is logged in
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                // If not logged in, redirect to index.html
+                window.location.href = "index.html";
+            }
+        });
+    </script>
 
 </body>
 
